@@ -52,5 +52,5 @@ app.get('/download', function(req, res) {
 });
 
 app.listen(process.env.PORT || 5000, function() {
-    console.log('App running on port 5555');
+    console.log('App running on port process.env.PORT || 5000');
 });
