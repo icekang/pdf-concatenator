@@ -37,13 +37,14 @@ app.get('/', function(req, res) {
 app.post('/upload', function(req, res) {
     const pdfDoc = new HummusRecipe('new', 'outputs/output.pdf');
     // const pdfDoc = new HummusRecipe('uploads/input.pdf', 'outputs/output.pdf');
-    const coverPDF = 'outputs/cover.pdf';
+    const coverfPDF = 'outputs/cover-front.pdf';
+    const coverbPDF = 'outputs/cover-back.pdf';
     const bodyPDF = 'uploads/input.pdf';
     // const bodyPDF = 'outputs/body.pdf';
     pdfDoc
-        .appendPage(coverPDF, [1, 2])
+        .appendPage(coverfPDF)
         .appendPage(bodyPDF)
-        .appendPage(coverPDF, 3)
+        .appendPage(coverbPDF)
         .endPDF();
     res.redirect('/download');
 });
