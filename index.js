@@ -38,7 +38,8 @@ app.post('/upload', function(req, res) {
     const pdfDoc = new HummusRecipe('new', 'outputs/output.pdf');
     // const pdfDoc = new HummusRecipe('uploads/input.pdf', 'outputs/output.pdf');
     const coverPDF = 'outputs/cover.pdf';
-    const bodyPDF = 'outputs/body.pdf';
+    const bodyPDF = 'uploads/input.pdf';
+    // const bodyPDF = 'outputs/body.pdf';
     pdfDoc
         .appendPage(coverPDF, [1, 2])
         .appendPage(bodyPDF)
@@ -52,5 +53,5 @@ app.get('/download', function(req, res) {
 });
 
 app.listen(process.env.PORT || 5000, function() {
-    console.log('App running on port process.env.PORT || 5000');
+    console.log('App running on ' + process.env.PORT + ' || 5000');
 });
